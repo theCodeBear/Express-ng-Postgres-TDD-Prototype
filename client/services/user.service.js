@@ -14,7 +14,7 @@ function User($http) {
     create: create
   };
 
-  return serivce;
+  return service;
 
 
   function create(user) {

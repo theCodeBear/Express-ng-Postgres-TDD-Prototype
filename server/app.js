@@ -8,6 +8,10 @@ var express = require('express'),
     app = express(),
     http = require('http').Server(app);
 
+// use given environment, or 'development' if environment not given
+var env = process.env.NODE_ENV || 'development';
+var config = require('./config/config')[env];
+
 // run some basic Express third-party middleware
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -27,8 +31,20 @@ app.use('/', router);
 // connect to postgres
 
 // run Express web server
-http.listen(3333, function() {
-  console.log('Serving on port:', http.address().port);
-});
+exports.start = function(cb) {
+  http.listen(config.port, function() {
+    console.log('Serving on port:', http.address().port);
+    cb && cb();
+  });
+}
 
-module.exports = app;
+// stop express server
+exports.stop = function(cb) {
+  http.close(cb);
+}
+
+// if file is being run directly from command line, start server.
+// otherwise file is being required, so need to use .start and .stop
+if (module.id === require.main.id) {
+  exports.start();
+}

@@ -13,7 +13,14 @@ describe('Users', function() {
     app.start(done);
   });
 
-
+  describe('get /users', function() {
+    it('should return a response', function(done) {
+      http.get({port: port, path:'/users'}, function(results) {
+        assert.equal(results.statusCode, 200);
+        done();
+      });
+    });
+  });
 
   after(function(done) {
     app.stop(done);

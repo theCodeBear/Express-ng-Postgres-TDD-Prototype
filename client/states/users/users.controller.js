@@ -5,9 +5,9 @@ angular.module('pean')
 .controller('UserCtrl', UserCtrl);
 
 
-UserCtrl.$inject = ['User'];
+UserCtrl.$inject = ['User', '$http'];
 
-function UserCtrl(User) {
+function UserCtrl(User, $http) {
 
   let vmUser = this;
 
@@ -15,7 +15,10 @@ function UserCtrl(User) {
   vmUser.createUser = createUser;
 
 
-
+$http.get('/users').then(function(response) {
+  console.log('resp', response.data)
+  vmUser.data = response.data;
+})
 
 
   function createUser(user) {
