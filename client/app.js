@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('pean', ['ui.router'])
+angular.module('pean', ['ui.router', 'ngFileUpload'])
 
 .config(config);
 
