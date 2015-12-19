@@ -1,0 +1,30 @@
+{
+  "name": "express-ng-postgres-tdd-prototype",
+  "description": "A project starter for a full stack application built in Express, Angular, and Postgres, with testing.",
+  "main": "server/index.js",
+  "authors": [
+    "Todd Kronenberg <toddkronenberg@gmail.com>"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "Express",
+    "Node.js",
+    "Angular",
+    "Postgres",
+    "TDD"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "client/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap": "~3.3.6"
+  }
+}

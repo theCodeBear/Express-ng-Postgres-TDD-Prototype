@@ -1,0 +1,29 @@
+{
+  "name": "express-ng-postgres-tdd-prototype",
+  "version": "1.0.0",
+  "description": "A project starter for a full stack application built in Express, Angular, and Postgres, with testing.",
+  "main": "server/app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/theCodeBear/Express-ng-Postgres-TDD-Prototype.git"
+  },
+  "keywords": [
+    "Express",
+    "Node.js",
+    "Angular",
+    "Postgres",
+    "TDD"
+  ],
+  "author": "Todd Kronenberg <toddkronenberg@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theCodeBear/Express-ng-Postgres-TDD-Prototype/issues"
+  },
+  "homepage": "https://github.com/theCodeBear/Express-ng-Postgres-TDD-Prototype#readme"
+}
