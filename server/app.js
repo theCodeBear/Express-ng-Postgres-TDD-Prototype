@@ -5,7 +5,7 @@ var express = require('express'),
     logger = require('morgan'),
     bodyParser = require('body-parser'),
     middleware = require('./config/middleware'),
-    Sequelize = require('sequelize'),
+    models = require('./../models'),
     app = express(),
     http = require('http').Server(app);
 
@@ -29,27 +29,21 @@ app.use('/', router);
 // run application-level middleware (after all routes)
 // ... no after-middleware yet
 
-// connect to postgres using sequelize
-var sequelize = new Sequelize(config.db);
 
-// check database connection
-sequelize.authenticate().then(function(err) {
-  if (err) console.log('Unable to connect to the database:', err);
-  else console.log('Connection to Postgres successful.');
-});
-
-// run Express web server
+// run Express web server and sync postgres database
 exports.start = function(cb) {
-  http.listen(config.port, function() {
-    console.log('Serving on port:', http.address().port);
-    cb && cb();
+  models.sequelize.sync().then(function() {
+    http.listen(config.port, function() {
+      console.log('Serving on port:', http.address().port);
+      cb && cb();
+    });
   });
-}
+};
 
 // stop express server
 exports.stop = function(cb) {
   http.close(cb);
-}
+};
 
 // if file is being run directly from command line, start server.
 // otherwise file is being required, so need to use .start and .stop

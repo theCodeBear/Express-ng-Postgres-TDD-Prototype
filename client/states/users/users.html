@@ -2,7 +2,7 @@
 
 <form ng-submit='vmUser.createUser(vmUser.user)' name='register' enctype='multipart/form-data'>
   <input type='text' ng-model='vmUser.user.name' name='name' placeholder='Name' required><br>
-  Photo: <input type='file' ngf-select ngf='"image/*"' ngf-accept='"image/*"' ngf-max-size='20MB' ng-model='vmUser.user.photo' name='photo' required>
+  Photo: <input type='file' ngf-select ngf='"image/*"' ngf-accept='"image/*"' ngf-max-size='20MB' ng-model='vmUser.user.photo' name='photo'>
   <button type='submit'>Register User</button>
 </form>
 

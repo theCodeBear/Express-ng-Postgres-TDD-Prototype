@@ -18,13 +18,14 @@ function UserCtrl(User, $http) {
 $http.get('/users').then(function(response) {
   console.log('resp', response.data)
   vmUser.data = response.data;
-})
+});
 
 
   function createUser(user) {
     console.log(user);
     User.create(user).then(function(response) {
       console.log(response.data);
+      vmUser.data = response.data;
     }).catch(function(error) {
       console.log('ERROR', error.data);
     });
