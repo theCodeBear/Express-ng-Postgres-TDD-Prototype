@@ -16,7 +16,7 @@ function UserCtrl(User, $http) {
 
 
 $http.get('/users').then(function(response) {
-  console.log('resp', response.data)
+  console.log('resp', response)
   vmUser.data = response.data;
 });
 
@@ -24,7 +24,7 @@ $http.get('/users').then(function(response) {
   function createUser(user) {
     console.log(user);
     User.create(user).then(function(response) {
-      console.log(response.data);
+      console.log(response);
       vmUser.data = response.data;
     }).catch(function(error) {
       console.log('ERROR', error.data);

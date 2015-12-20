@@ -1,12 +1,12 @@
 'use strict';
 
 var models = require('./../../../models');
+var User = require('./../../models/user.model');
 
 
 module.exports = function(req, res) {
-  models.User.findAll().then(function(results) {
-    var name = results[0].dataValues.name;
-    console.log(name);
-    res.status(200).send(name);
+  User.index(function(err, records) {
+    if (err) return res.send(err).status(500);
+    return res.status(200).send(records);
   });
 };
