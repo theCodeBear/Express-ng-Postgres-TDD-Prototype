@@ -8,11 +8,11 @@ var env       = process.env.NODE_ENV || 'development';
 var config    = require(__dirname + '/../config/config')[env];
 var db        = {};
 
-if (config.db) {
-  var sequelize = new Sequelize(config.db);
-} else {
-  var sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
+// if (config.db) {
+  var sequelize = new Sequelize(config.db, config.options);
+// } else {
+//   var sequelize = new Sequelize(config.database, config.username, config.password, config);
+// }
 
 fs
   .readdirSync(__dirname)
