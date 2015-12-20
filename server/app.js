@@ -5,6 +5,7 @@ var express = require('express'),
     logger = require('morgan'),
     bodyParser = require('body-parser'),
     middleware = require('./config/middleware'),
+    Sequelize = require('sequelize'),
     app = express(),
     http = require('http').Server(app);
 
@@ -28,7 +29,14 @@ app.use('/', router);
 // run application-level middleware (after all routes)
 // ... no after-middleware yet
 
-// connect to postgres
+// connect to postgres using sequelize
+var sequelize = new Sequelize(config.db);
+
+// check database connection
+sequelize.authenticate().then(function(err) {
+  if (err) console.log('Unable to connect to the database:', err);
+  else console.log('Connection to Postgres successful.');
+});
 
 // run Express web server
 exports.start = function(cb) {

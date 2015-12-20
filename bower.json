@@ -20,7 +20,8 @@
     "node_modules",
     "client/lib",
     "test",
-    "tests"
+    "tests",
+    ".env"
   ],
   "dependencies": {
     "angular": "~1.4.8",

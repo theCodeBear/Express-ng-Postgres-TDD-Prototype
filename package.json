@@ -7,9 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "test-unit": "NODE_ENV=test mocha test/unit/*",
-    "test-integration": "NODE_ENV=test mocha test/integration/*",
-    "dev": "nodemon server/app.js"
+    "test-unit": ". .env && NODE_ENV=test mocha test/unit/*",
+    "test-integration": ". .env && NODE_ENV=test PSQL_DB=pean_test mocha test/integration/*",
+    "dev": ". .env && PSQL_DB=pean_dev nodemon server/app.js"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,8 @@
     "express": "^4.13.3",
     "http": "0.0.0",
     "morgan": "^1.6.1",
+    "pg": "^4.4.3",
+    "sequelize": "^3.15.0",
     "sinon": "^1.17.2"
   }
 }
