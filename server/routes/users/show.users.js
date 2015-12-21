@@ -3,7 +3,7 @@
 var models = require('./../../../models');
 var User = require('./../../models/user.model');
 
-
+// returns the record for one user
 module.exports = function(req, res) {
   models.User.findOne({ where: {name: req.params.name}}).then(function(user) {
     return res.send(user);
