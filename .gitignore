@@ -1,3 +1,5 @@
 node_modules/
 client/lib/
 .env
+npm-debug.log
+coverage.html

@@ -7,8 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "test-unit": ". .env && NODE_ENV=test mocha test/unit/*",
-    "test-integration": ". .env && NODE_ENV=test PSQL_DB=pean_test mocha --timeout 8000 test/integration/*",
+    "test": ". .env && NODE_ENV=test PSQL_DB=pean_test mocha --timeout 8000 --require blanket -R html-cov > coverage.html test/**/*.js",
+    "test-unit": ". .env && NODE_ENV=test mocha --timeout 8000 --require blanket -R html-cov > coverage.html test/unit/*",
+    "test-integration": ". .env && NODE_ENV=test PSQL_DB=pean_test mocha --require blanket -R html-cov > coverage.html --timeout 8000 test/integration/*",
     "dev": ". .env && PSQL_DB=pean_dev nodemon server/app.js"
   },
   "repository": {
@@ -39,5 +40,13 @@
     "sequelize": "^3.15.0",
     "sequelize-cli": "^2.2.1",
     "sinon": "^1.17.2"
+  },
+  "devDependencies": {
+    "blanket": "^1.2.1"
+  },
+  "config": {
+    "blanket": {
+      "pattern": "server"
+    }
   }
 }
