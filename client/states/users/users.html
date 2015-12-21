@@ -7,3 +7,22 @@
 </form>
 
 {{ vmUser.data }}
+
+<form ng-submit='vmUser.showUser(vmUser.show)' name='show'>
+  <input type='text' ng-model='vmUser.show.name' name='name' placeholder="User's name" required>
+  <button type='submit'>Show User</button>
+</form>
+
+{{ vmUser.showOne }}
+
+
+<form ng-submit='vmUser.deleteUser(vmUser.delete)' name='delete'>
+  <input type='text' ng-model='vmUser.delete.name' name='name' placeholder='Name' required>
+  <button type='submit'>Delete User</button>
+</form>
+
+<form ng-submit='vmUser.updateUser(vmUser.update)' name='update'>
+  <input type='text' ng-model='vmUser.update.currentName' name='currentName' placeholder='Current Name' required>
+  <input type='text' ng-model='vmUser.update.newName' name='newName' placeholder='New Name' required>
+  <button type='submit'>Update User Name</button>
+</form>
