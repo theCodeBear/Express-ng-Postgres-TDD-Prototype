@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": ". .env && NODE_ENV=test PSQL_DB=pean_test mocha --timeout 8000 --require blanket -R html-cov > coverage.html test/**/*.js",
+    "test-coverage": ". .env && NODE_ENV=test PSQL_DB=pean_test mocha --timeout 8000 --require blanket -R html-cov > coverage.html test/unit/*.js",
     "test-unit": ". .env && NODE_ENV=test mocha test/unit/*",
     "test-integration": ". .env && NODE_ENV=test PSQL_DB=pean_test mocha --timeout 8000 test/integration/*",
     "dev": ". .env && PSQL_DB=pean_dev nodemon server/app.js"
