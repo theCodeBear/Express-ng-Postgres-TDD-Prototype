@@ -1,11 +1,7 @@
 'use strict';
 
 var assert = require('chai').assert;
-var sinon = require('sinon');
-// var http = require('http');
 var request = require('request');
-var port = require('./../../server/config/config').test.port;
-// var config = require('./config/config').test;
 var app = require('../../server/app');
 var models = require('./../../models');
 
