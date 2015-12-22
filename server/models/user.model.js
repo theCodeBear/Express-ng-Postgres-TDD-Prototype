@@ -9,7 +9,7 @@ exports.save = function(user, cb) {
   }).then(cb);
 };
 
-// returns array of users' names
+// returns array of all users' names
 exports.index = function(cb) {
   models.User.findAll().then(function(results) {
     var records = [];
@@ -18,4 +18,12 @@ exports.index = function(cb) {
     });
     cb(null, records);
   });
+};
+
+// returns a single user record
+exports.show = function(name, cb) {
+  models.User.findOne({ where: {name: name}})
+  .then(function(user) {
+    cb(null, user);
+  }).catch(cb);
 };

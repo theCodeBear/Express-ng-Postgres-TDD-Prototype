@@ -29,13 +29,12 @@ exports.destroy = function(req, res) {
 };
 
 
-// returns the record for one user
+// returns the record for one user, or null if no user
 exports.show = function(req, res) {
-  models.User.findOne({ where: {name: req.params.name}}).then(function(user) {
+  User.show(req.params.name, function(err, user) {
+    if (err) return res.send(err).status(500);
+    if (!user) return res.status(404);
     return res.send(user);
-  }).catch(function(err) {
-    console.log('ERROR IN SHOW ROUTE', err);
-    return res.send(err).status(500);
   });
 };
 

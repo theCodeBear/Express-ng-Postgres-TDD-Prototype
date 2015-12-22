@@ -50,7 +50,7 @@ describe('Users', function() {
         var name = JSON.parse(body).name;
         assert.equal(name, 'Kent');
         done();
-      })
+      });
     });
   });
 
@@ -75,7 +75,7 @@ describe('Users', function() {
         done();
       });
     });
-  })
+  });
 
   after(app.stop);
 
